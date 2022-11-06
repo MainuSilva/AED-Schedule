@@ -283,10 +283,9 @@ void Interface:: process_Changes() {
         cout << "\nChanges are being made...\n" << endl;
 
 // efetuar alteração mútua de estudantes
-
         for (vector<Pedido_troca> change: double_request) {
 
-            vector<Pedido_troca> two_requests {change[1], change[2]};
+            vector<Pedido_troca> two_requests {change[0], change[1]};
 
             //se true - fazemos as mudanças
             if (change[0].can_student_switch_without_sobreposing_TP_PL(student_classes_lines_, classesCsv_lines_) &&
@@ -367,8 +366,6 @@ void Interface:: process_Changes() {
 
                     Read_line line = student_classes_lines_[i];
 
-                    cout << line.getString(0) << endl;
-
                     if (ucCode == line.getString(2)) {
 
                         line.change_Value(new_classCode, 3);
@@ -432,17 +429,15 @@ void Interface::bet_Two_Std() {
 
     cout << "\n--------------- Permute between two student ------------------" << endl;
     cout << endl;
-    cout << "Introduce the up of the first student (only the number): " << endl;
+    cout << "Introduce the up of the first student (only the number): " ;
 
     up1 = find_Up();
 
-    cout << endl;
-    cout << "Introduce the up of the second student (only the number): " << endl;
+    cout << "\nIntroduce the up of the second student (only the number): " ;
 
     up2 = find_Up();
 
-    cout << endl;
-    cout << "Introduce the UC to swap students: " << endl;
+    cout << "\nIntroduce the UC to swap students: " ;
 
    ucCode = find_UC();
 
@@ -568,6 +563,7 @@ void Interface::show_Classes_Year(){
 
     char year;
     bool digit = false;
+    set <string> classes_year;
 
     cout << "\n---------- List Classes by Year ----------" << endl;
     cout << endl;
@@ -586,15 +582,22 @@ void Interface::show_Classes_Year(){
 
     }
 
-    cout << "\n-------------- Classes in "<< year << "st year ---------------";
+    cout << "\n-------------- Classes in year "<< year << " ---------------";
     cout << endl;
 
 
     for (auto turma: all_classes) {
-        if((turma.at(0) = year))
-            cout << turma << endl;
+        if(turma.at(0) == year)
+            classes_year.insert(turma);
     }
 
+    for(auto turma : classes_year){
+        cout << turma << endl;
+    }
+
+    if(classes_year.empty()){
+        cout << "\nThere are no students in that year" << endl;
+    }
 
     wait_B();
 
@@ -645,7 +648,7 @@ void Interface::show_Classes_UC() {
 void Interface::class_Schedule() {
     string classCode;
 
-    cout << "\n---------- Class Schedule ----------";
+    cout << "\n---------- Class Schedule ----------" << endl;
     cout << endl;
     cout << "Introduce the Class Code: ";
 
@@ -823,7 +826,7 @@ void Interface::list_By_Year_UC() {
 
     }
 
-    cout << "\n-------------- "<< year << "st year UCs ---------------" << endl;
+    cout << "\n-------------- "<< year << " year UCs ---------------" << endl;
     cout << endl;
 
     //criar um set das ucs por ano para evitar repetições
@@ -861,7 +864,7 @@ void Interface::get_UcSchedule() {
 
     // pegar no horário de uma UC
     Uc single_UC(ucCode);
-    single_UC.print_horario_uc_code();// faz print do horário de uma uc
+    single_UC.print_horario_uc_code(classesCsv_lines_);// faz print do horário de uma uc
 
     wait_B();
 
@@ -1065,7 +1068,7 @@ void Interface::number_Of_Ucs() {
     bool stop_While = false;
     char choice;
 
-    cout << "\n--------- Do you want to see students who have more than how many ucs? ----------";
+    cout << "\n--------- You want to see students who have more than how many ucs? ----------";
     cout << endl;
     cout << "Enter Your Choice : ";
 

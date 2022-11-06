@@ -25,9 +25,9 @@ vector <Aula> Estudante::get_horario_Student(vector <Read_line> students, vector
 
     for(Read_line student : find(students)){
 
-        Uc uc(student.getString(2), classes);
+        Uc uc(student.getString(2));
 
-        vector<Aula> uc_classes = uc.get_horarios_uc_turma( student.getString(3));
+        vector<Aula> uc_classes = uc.get_horarios_uc_turma( student.getString(3), classes);
 
         for(Aula aula: uc_classes){
 

@@ -2,7 +2,6 @@
 #include <algorithm>
 #include "../include/Read_file.h"
 #include "../include/Aula.h"
-#include "../include/Horario.h"
 #include "../include/Interface.h"
 #include "../include/Estudante.h"
 

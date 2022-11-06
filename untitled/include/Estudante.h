@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-#include "Horario.h"
 #include "Aula.h"
 #include "Uc.h"
 #include "Turma.h"

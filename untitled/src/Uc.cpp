@@ -2,33 +2,29 @@
 #include "../include/Turma.h"
 #include <iomanip>
 #include <iostream>
+#include <set>
 
 using namespace std;
+
 Uc::Uc(std::string ucCode){
     ucCode_ = ucCode;
 }
 
-Uc::Uc(std::string ucCode , vector<Read_line> lines){
-    ucCode_ = ucCode;
-
+vector<Aula> Uc::get_horario_uc(vector<Read_line> lines){
+    vector <Aula> horario_uc;
     vector <Read_line> aulas = find_uc(lines, 1);
 
     for (auto line : aulas) {
         Aula aula(line);
         horario_uc.push_back(aula);
     }
-
-}
-
-vector<Aula> Uc::get_horario_uc(){
-
     return horario_uc;
 }
 
 //obtemos o horário da uc de determinada turma
-vector<Aula> Uc::get_horarios_uc_turma( string classCode) {
-
+vector<Aula> Uc::get_horarios_uc_turma( string classCode, vector<Read_line> lines) {
     vector<Aula> new_horario;
+    vector <Aula> horario_uc = get_horario_uc(lines);
 
     for(int i = 0; i < horario_uc.size(); i++ ){
 
@@ -42,9 +38,9 @@ vector<Aula> Uc::get_horarios_uc_turma( string classCode) {
 
 
 // obter o horário da uc de determinada turma sem aulas teóricas
-vector<Aula> Uc::get_horarios_turma_without_T( string classCode) {
-
+vector<Aula> Uc::get_horarios_turma_without_T( string classCode, vector<Read_line> lines) {
     vector<Aula> new_horario;
+    vector <Aula> horario_uc = get_horario_uc(lines);
 
     for(int i = 0; i < horario_uc.size(); i++ ){
 
@@ -170,8 +166,8 @@ vector<Read_line> Uc::find_uc(vector <Read_line> classes, int index){
 }
 
 
-void Uc::print_horario_uc_code(){
-
+void Uc::print_horario_uc_code(vector<Read_line> lines){
+    vector <Aula> horario_uc = get_horario_uc(lines);
     cout << endl;
 
 

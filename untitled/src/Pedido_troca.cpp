@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <set>
 #include "../include/Pedido_troca.h"
 
 
@@ -45,8 +46,8 @@ bool Pedido_troca::can_student_switch_without_sobreposing_TP_PL( vector<Read_lin
     }
 
     // descobrir o horário da uc nova
-    Uc new_uc(ucCode_, classesCsv_lines_);
-    vector<Aula> horario_novo_da_uc = new_uc.get_horarios_turma_without_T( new_classCode_);
+    Uc new_uc(ucCode_);
+    vector<Aula> horario_novo_da_uc = new_uc.get_horarios_turma_without_T( new_classCode_, classesCsv_lines_);
 
     //verificar se estão overlaped
 
@@ -66,7 +67,7 @@ bool Pedido_troca::can_student_switch_without_sobreposing_TP_PL( vector<Read_lin
 bool Pedido_troca::can_student_switch_without_passing_cap(vector<Read_line> student_classes_lines_, vector <Read_line> classes, vector<Read_line> classes_per_uc) {
 
     Turma turma(new_classCode_, ucCode_);
-    Uc uc(ucCode_, classes);
+    Uc uc(ucCode_);
     vector <Turma> list_classes_uc = uc.classList(classes_per_uc);
 
     int value_1 = turma.getStudentNumber(student_classes_lines_) + 1;

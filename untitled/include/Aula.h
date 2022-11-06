@@ -28,6 +28,8 @@ private:
 
     /// Duração da aula
     double duration_;
+
+    /// Tipo de aula
     std::string type_;
 
 
@@ -81,7 +83,6 @@ public:
     * Complexidade temporal O(1)
     * @return A hora
     */
-
     double get_startHour() const;
 
     /**
@@ -111,7 +112,6 @@ public:
     * @param new_aula: aula destino, a que o aluno frequentará se a alteração se concretizar
     * @return true se estiverem sobrepostas, false caso contrário
     */
-
     bool is_overlaped(Aula new_aula);
 
 };

@@ -3,8 +3,8 @@
 
 #include "Read_line.h"
 #include <vector>
+#include <set>
 #include "Turma.h"
-#include "Horario.h"
 #include "Uc.h"
 #include "Read_line.h"
 #include "Read_file.h"
