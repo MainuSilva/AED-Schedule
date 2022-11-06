@@ -90,9 +90,6 @@
 		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/include/Estudante.h">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/include/Horario.h">
-			<Option target="untitled"/>
-		</Unit>
 		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/include/Interface.h">
 			<Option target="untitled"/>
 		</Unit>
@@ -115,9 +112,6 @@
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/src/Estudante.cpp">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/src/Horario.cpp">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="C:/Users/manue/OneDrive/Ambiente de Trabalho/Novo projeto/untitled/src/Interface.cpp">

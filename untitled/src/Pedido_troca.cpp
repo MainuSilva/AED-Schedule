@@ -11,8 +11,6 @@ Pedido_troca::Pedido_troca(Estudante student, std::string atual_classCode, std::
     new_classCode_ = new_classCode;
 }
 
-
-
 const string &Pedido_troca::getUcCode() const {
     return ucCode_;
 }
@@ -36,7 +34,6 @@ bool Pedido_troca::can_student_switch_without_sobreposing_TP_PL( vector<Read_lin
 
     vector <Aula> horario_without_uc = student_.get_horario_Student(student_classes_lines_, classesCsv_lines_);
 
-    // obter o horario sem a T e sem a uc
     for(int i = 0; i < horario_without_uc.size(); i++){
 
         if(horario_without_uc[i].get_ucCode() == ucCode_ || horario_without_uc[i].get_type() == "T"){

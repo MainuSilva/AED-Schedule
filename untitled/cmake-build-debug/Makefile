@@ -176,30 +176,6 @@ src/Estudante.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/src/Estudante.cpp.s
 .PHONY : src/Estudante.cpp.s
 
-src/Horario.obj: src/Horario.cpp.obj
-.PHONY : src/Horario.obj
-
-# target to build an object file
-src/Horario.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/src/Horario.cpp.obj
-.PHONY : src/Horario.cpp.obj
-
-src/Horario.i: src/Horario.cpp.i
-.PHONY : src/Horario.i
-
-# target to preprocess a source file
-src/Horario.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/src/Horario.cpp.i
-.PHONY : src/Horario.cpp.i
-
-src/Horario.s: src/Horario.cpp.s
-.PHONY : src/Horario.s
-
-# target to generate assembly for a file
-src/Horario.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/src/Horario.cpp.s
-.PHONY : src/Horario.cpp.s
-
 src/Interface.obj: src/Interface.cpp.obj
 .PHONY : src/Interface.obj
 
@@ -383,9 +359,6 @@ help:
 	@echo ... src/Estudante.obj
 	@echo ... src/Estudante.i
 	@echo ... src/Estudante.s
-	@echo ... src/Horario.obj
-	@echo ... src/Horario.i
-	@echo ... src/Horario.s
 	@echo ... src/Interface.obj
 	@echo ... src/Interface.i
 	@echo ... src/Interface.s

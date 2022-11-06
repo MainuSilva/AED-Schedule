@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/src/Aula.cpp.obj.d"
   "CMakeFiles/untitled.dir/src/Estudante.cpp.obj"
   "CMakeFiles/untitled.dir/src/Estudante.cpp.obj.d"
-  "CMakeFiles/untitled.dir/src/Horario.cpp.obj"
-  "CMakeFiles/untitled.dir/src/Horario.cpp.obj.d"
   "CMakeFiles/untitled.dir/src/Interface.cpp.obj"
   "CMakeFiles/untitled.dir/src/Interface.cpp.obj.d"
   "CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj"

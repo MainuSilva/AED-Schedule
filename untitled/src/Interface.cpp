@@ -853,7 +853,7 @@ void Interface::get_UcSchedule() {
 
     cout << "\n---------- UC Schedule ----------" << endl;
     cout << endl;
-    cout << "Introduce the UC Code (L.EIC001- L.EIC025): ";
+    cout << "Introduce the UC Code : ";
 
     // verificar se o UcCode existe
     ucCode = find_UC();
@@ -949,7 +949,7 @@ void Interface::get_StudentSchedule() {
     string classCode;
     string ucCode;
 
-    cout << "\n-------------- UP Schedule ---------------";
+    cout << "\n-------------- UP Schedule ---------------"<< endl;
     cout << endl;
     cout << "Introduce the number of the student UP code: ";
 
@@ -1068,9 +1068,9 @@ void Interface::number_Of_Ucs() {
     bool stop_While = false;
     char choice;
 
-    cout << "\n--------- You want to see students who have more than how many ucs? ----------";
+    cout << "\n--------- You want to see students who have more than how many ucs? ----------"<< endl;
     cout << endl;
-    cout << "Enter Your Choice : ";
+    cout << "Introduce the number of UCs: ";
 
     while(!stop_While) {
         cin >> choice;

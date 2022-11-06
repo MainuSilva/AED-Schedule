@@ -124,24 +124,10 @@ CMakeFiles/untitled.dir/src/Aula.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/src/Aula.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Aula.cpp" -o CMakeFiles\untitled.dir\src\Aula.cpp.s
 
-CMakeFiles/untitled.dir/src/Horario.cpp.obj: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/src/Horario.cpp.obj: ../src/Horario.cpp
-CMakeFiles/untitled.dir/src/Horario.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/untitled.dir/src/Horario.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Horario.cpp.obj -MF CMakeFiles\untitled.dir\src\Horario.cpp.obj.d -o CMakeFiles\untitled.dir\src\Horario.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Horario.cpp"
-
-CMakeFiles/untitled.dir/src/Horario.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/src/Horario.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Horario.cpp" > CMakeFiles\untitled.dir\src\Horario.cpp.i
-
-CMakeFiles/untitled.dir/src/Horario.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/src/Horario.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Horario.cpp" -o CMakeFiles\untitled.dir\src\Horario.cpp.s
-
 CMakeFiles/untitled.dir/src/Read_file.cpp.obj: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/src/Read_file.cpp.obj: ../src/Read_file.cpp
 CMakeFiles/untitled.dir/src/Read_file.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/untitled.dir/src/Read_file.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/untitled.dir/src/Read_file.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Read_file.cpp.obj -MF CMakeFiles\untitled.dir\src\Read_file.cpp.obj.d -o CMakeFiles\untitled.dir\src\Read_file.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Read_file.cpp"
 
 CMakeFiles/untitled.dir/src/Read_file.cpp.i: cmake_force
@@ -155,7 +141,7 @@ CMakeFiles/untitled.dir/src/Read_file.cpp.s: cmake_force
 CMakeFiles/untitled.dir/src/Read_line.cpp.obj: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/src/Read_line.cpp.obj: ../src/Read_line.cpp
 CMakeFiles/untitled.dir/src/Read_line.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/untitled.dir/src/Read_line.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/untitled.dir/src/Read_line.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Read_line.cpp.obj -MF CMakeFiles\untitled.dir\src\Read_line.cpp.obj.d -o CMakeFiles\untitled.dir\src\Read_line.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Read_line.cpp"
 
 CMakeFiles/untitled.dir/src/Read_line.cpp.i: cmake_force
@@ -169,7 +155,7 @@ CMakeFiles/untitled.dir/src/Read_line.cpp.s: cmake_force
 CMakeFiles/untitled.dir/src/Uc.cpp.obj: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/src/Uc.cpp.obj: ../src/Uc.cpp
 CMakeFiles/untitled.dir/src/Uc.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/untitled.dir/src/Uc.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/untitled.dir/src/Uc.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Uc.cpp.obj -MF CMakeFiles\untitled.dir\src\Uc.cpp.obj.d -o CMakeFiles\untitled.dir\src\Uc.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Uc.cpp"
 
 CMakeFiles/untitled.dir/src/Uc.cpp.i: cmake_force
@@ -183,7 +169,7 @@ CMakeFiles/untitled.dir/src/Uc.cpp.s: cmake_force
 CMakeFiles/untitled.dir/src/Interface.cpp.obj: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/src/Interface.cpp.obj: ../src/Interface.cpp
 CMakeFiles/untitled.dir/src/Interface.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/untitled.dir/src/Interface.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/untitled.dir/src/Interface.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Interface.cpp.obj -MF CMakeFiles\untitled.dir\src\Interface.cpp.obj.d -o CMakeFiles\untitled.dir\src\Interface.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Interface.cpp"
 
 CMakeFiles/untitled.dir/src/Interface.cpp.i: cmake_force
@@ -197,7 +183,7 @@ CMakeFiles/untitled.dir/src/Interface.cpp.s: cmake_force
 CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj: CMakeFiles/untitled.dir/flags.make
 CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj: ../src/Pedido_troca.cpp
 CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/untitled.dir/src/Pedido_troca.cpp.obj -MF CMakeFiles\untitled.dir\src\Pedido_troca.cpp.obj.d -o CMakeFiles\untitled.dir\src\Pedido_troca.cpp.obj -c "C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\src\Pedido_troca.cpp"
 
 CMakeFiles/untitled.dir/src/Pedido_troca.cpp.i: cmake_force
@@ -214,7 +200,6 @@ untitled_OBJECTS = \
 "CMakeFiles/untitled.dir/src/Turma.cpp.obj" \
 "CMakeFiles/untitled.dir/src/Estudante.cpp.obj" \
 "CMakeFiles/untitled.dir/src/Aula.cpp.obj" \
-"CMakeFiles/untitled.dir/src/Horario.cpp.obj" \
 "CMakeFiles/untitled.dir/src/Read_file.cpp.obj" \
 "CMakeFiles/untitled.dir/src/Read_line.cpp.obj" \
 "CMakeFiles/untitled.dir/src/Uc.cpp.obj" \
@@ -228,7 +213,6 @@ untitled.exe: CMakeFiles/untitled.dir/src/main.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Turma.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Estudante.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Aula.cpp.obj
-untitled.exe: CMakeFiles/untitled.dir/src/Horario.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Read_file.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Read_line.cpp.obj
 untitled.exe: CMakeFiles/untitled.dir/src/Uc.cpp.obj
@@ -238,7 +222,7 @@ untitled.exe: CMakeFiles/untitled.dir/build.make
 untitled.exe: CMakeFiles/untitled.dir/linklibs.rsp
 untitled.exe: CMakeFiles/untitled.dir/objects1.rsp
 untitled.exe: CMakeFiles/untitled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable untitled.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\manue\OneDrive\Ambiente de Trabalho\Novo projeto\untitled\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable untitled.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\untitled.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
