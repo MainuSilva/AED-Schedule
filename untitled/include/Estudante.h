@@ -29,6 +29,7 @@ public:
 
     /**
      * @brief Constructor da classe
+     * Complexidade Temporal: O(1)
      * @param studentCode: Código do estudante
      */
     Estudante(std::string studentCode);
@@ -59,6 +60,7 @@ public:
 
     /**
      * @brief Função que imprime uma interface para a visualização do horário de um estudante
+     * Complexidade Temporal: O(n) sendo n o comprimento do vetor horário
      * @param horario : vetor com as várias aulas que o estudante frequenta
      */
     void print_horario_class_uc(vector<Aula> horario);
@@ -78,11 +80,30 @@ public:
      * @return retorna o primeiro indíce onde o código do estudante em causa aparece
      */
     int lowerStudentIndex(vector<Read_line> students);
-
+    
+    /**
+     * @brief Função auxiliar da função anterior
+     * Complexidade temporal: O(log(n)), sendo n o número de linhas de students_classes.csv
+     * @param students: vetor com todas as linhas do ficheiro students_classes.csv
+     * @return retorna o último indíce onde o código do estudante em causa aparece
+     */
     int highStudentIndex(vector<Read_line> students);
 
+    /**
+     * @brief Função que permite saber o número de UCs que um estudante frequenta
+     * Complexidade temporal: O(1), sendo n o número de linhas de students_classes.csv
+     * @param students: vetor com todas as linhas do ficheiro students_classes.csv
+     * @return número de UCs de um estudante
+     */
     int get_number_of_ucs(vector<Read_line> students);
 
+    /**
+     * @brief Função para obter o horário do estudante
+     * Complexidade temporal: O(n), sendo n o número de linhas de find(students)
+     * @param students: vetor com todas as linhas do ficheiro students_classes.csv
+     * @param classes: vetor com todas as linhas do ficheiro classes.csv
+     * @return interface para visualizar o horário
+     */
     vector<Aula> get_horario_Student(vector<Read_line> students, vector<Read_line> classes);
 };
 
