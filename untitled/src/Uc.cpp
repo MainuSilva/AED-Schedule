@@ -4,24 +4,30 @@
 #include <iostream>
 
 using namespace std;
-
 Uc::Uc(std::string ucCode){
     ucCode_ = ucCode;
 }
 
-//altera o horário de todas as aulas de uma uc
-void Uc::change_horarios_uc(vector<Read_line> lines) {
-    Horario horario(lines, ucCode_,1);
-    horario_uc = horario.get_horario();
+Uc::Uc(std::string ucCode , vector<Read_line> lines){
+    ucCode_ = ucCode;
+
+    vector <Read_line> aulas = find_uc(lines, 1);
+
+    for (auto line : aulas) {
+        Aula aula(line);
+        horario_uc.push_back(aula);
+    }
+
 }
 
 vector<Aula> Uc::get_horario_uc(){
+
     return horario_uc;
 }
 
 //obtemos o horário da uc de determinada turma
-vector<Aula> Uc::get_horarios_uc_turma(vector<Read_line> lines,  string classCode) {
-    change_horarios_uc(lines);
+vector<Aula> Uc::get_horarios_uc_turma( string classCode) {
+
     vector<Aula> new_horario;
 
     for(int i = 0; i < horario_uc.size(); i++ ){
@@ -33,9 +39,10 @@ vector<Aula> Uc::get_horarios_uc_turma(vector<Read_line> lines,  string classCod
     }
     return new_horario;
 };
+
+
 // obter o horário da uc de determinada turma sem aulas teóricas
-vector<Aula> Uc::get_horarios_turma_without_T(vector<Read_line> lines,  string classCode) {
-    change_horarios_uc(lines);
+vector<Aula> Uc::get_horarios_turma_without_T( string classCode) {
 
     vector<Aula> new_horario;
 
@@ -49,24 +56,27 @@ vector<Aula> Uc::get_horarios_turma_without_T(vector<Read_line> lines,  string c
     return new_horario;
 };
 
+
+
 //fazer a lista de todas as turmas a cada uc
 vector <Turma> Uc::classList(vector<Read_line> lines) {
     vector <Turma> classList;
 
-    for (auto line: lines) {
+    vector<Read_line> turmas = find_uc(lines, 0); // procurar no ficheiro classes per uc a lista de todas as classes de uc
 
-        if(line.getString(2) == ucCode_) {
+    for (auto line: turmas) {
 
-            Turma new_turma = Turma(line.getString(3), line.getString(2));
+            Turma new_turma = Turma(line.getString(1), line.getString(0));
 
             classList.push_back(new_turma);
 
-        }
     }
     return classList;
 }
 
-// obter o número de estudantes de uma UC
+
+
+// obter o número de estudantes de uma UC - students
 int Uc::get_number_students(vector<Read_line> lines){
     int num = 0;
     set<string> students;
@@ -86,6 +96,8 @@ int Uc::get_number_students(vector<Read_line> lines){
 return num;
 }
 
+
+
 int Uc::defineCap(vector<Read_line> lines, vector<Turma> classlist ) {
 
     int cap = 0;
@@ -102,24 +114,63 @@ int Uc::defineCap(vector<Read_line> lines, vector<Turma> classlist ) {
 }
 
 
-int Uc::defineMin(vector<Read_line> lines, vector<Turma> classlist ) {
+int Uc::lowStudentIndex( vector<Read_line> classes, int index) {
+    string uc = ucCode_;
+    int lower = 0,
+            higher = classes.size()-1;
 
-    int min = classlist[0].getStudentNumber(lines);
+    while(higher > lower){
+        int medium = lower + (higher-lower)/2;
 
-    for (auto turma: classlist) {
+        if(classes[medium].getString(index) >= uc) higher = medium;
 
-        if (turma.getStudentNumber(lines) < min && turma.getUcCode() == ucCode_) {
+        else  lower = medium +1;
 
-            min = turma.getStudentNumber(lines);
-
-        }
     }
-
-    return min;
+    return lower;
 }
 
-void Uc::print_horario_uc_code(vector<Read_line> lines){
-    change_horarios_uc(lines);
+
+
+int Uc::highStudentIndex(vector<Read_line> classes, int ind){
+    int index;
+    string uc = ucCode_;
+    int low = 0;
+    int high= classes.size()-1;
+
+    while(high > low){
+        int medium = low + (high-low)/2;
+
+        if(classes[medium].getString(ind) > uc) high = medium;
+
+        else  low = medium +1;
+    }
+    if(classes[low].getString(ind) > uc) index = low-1;
+
+    else index = low;
+
+    return index;
+
+}
+
+
+
+vector<Read_line> Uc::find_uc(vector <Read_line> classes, int index){
+
+    vector<Read_line> aux;
+    int resultA = lowStudentIndex(classes, index);
+
+    int resultB = highStudentIndex(classes, index);
+
+    for(int i = resultA; i <= resultB; i++){
+        aux.push_back(classes[i]);
+    }
+    return aux;
+
+}
+
+
+void Uc::print_horario_uc_code(){
 
     cout << endl;
 

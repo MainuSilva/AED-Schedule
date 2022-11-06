@@ -8,21 +8,27 @@ Turma::Turma(string classCode) {
     classCode_ = classCode;
 }
 
-Turma::Turma(string classCode, string ucCode){
+Turma::Turma(string classCode, string ucCode) {
     classCode_ = classCode;
     ucCode_ = ucCode;
 }
 
-string Turma::getUcCode() {
+const string &Turma::getClassCode() const {
     return classCode_;
 }
 
 //obtemos o horário de uma turma - file classes.csv
 vector<Aula> Turma::get_horario_turma(std::vector<Read_line> lines) {
+    vector<Aula> horario_turma;
 
-    Horario horario(lines, classCode_, 0);
-    horario_ = horario.get_horario();
-    return horario_;
+    for (auto line : lines) {
+        if(line.getString(0) == classCode_){
+            Aula aula(line);
+            horario_turma.push_back(aula);
+        }
+    }
+    return horario_turma;
+
 }
 
 //número de estudantes de uma turma por UC - ficheiro students_classes.csv
@@ -30,7 +36,7 @@ int Turma::getStudentNumber(vector<Read_line> lines) {
 
     int total = 0;
 
-    for (auto line:lines) { //substituir por binary search tree?
+    for (auto line:lines) {
 
         if (line.getString(2)== ucCode_ && line.getString(3) == classCode_) {
 
@@ -40,10 +46,12 @@ int Turma::getStudentNumber(vector<Read_line> lines) {
     return total;
 }
 
+
+
 //imprimir o horario de uma turma
- void Turma::print_horario_class_code(string classCode, vector<Aula> horario){
+ void Turma::print_horario_class_code( vector<Aula> horario){
     cout << "______________________________________________________________________________________________________" <<endl;
-    cout << "|                                        SCHEDULE OF " << classCode << "                                         |" <<endl;
+    cout << "|                                        SCHEDULE OF " << classCode_ << "                                         |" <<endl;
     cout << "|____________________________________________________________________________________________________|" <<endl;
     cout << "|    Weekday   |     UcCode    |      Type      |    StartHour    |     EndHour     |    Duration    |" <<endl;
     cout << "|______________|_______________|________________|_________________|_________________|________________|" <<endl;

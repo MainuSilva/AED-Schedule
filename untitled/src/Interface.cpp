@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ Interface::Interface(vector<Read_line> classesCsv_lines, vector<Read_line> class
     login = false;
     end_prog = false;
 }
+
 
 string Interface::find_Up(){
     string up;
@@ -35,6 +37,8 @@ string Interface::find_Up(){
 
 
 }
+
+
 string Interface::find_UC(){
     string ucCode;
     bool stop_While = false;
@@ -55,6 +59,7 @@ string Interface::find_UC(){
     return ucCode;
 
 }
+
 
 string Interface::find_Class(){
 
@@ -77,6 +82,8 @@ string Interface::find_Class(){
     return  classCode;
 
 }
+
+
 //colocar o utilizador e a palavra passe, colocar mudanças de turmas;
 void Interface::showMenu(){
     char choice;
@@ -146,6 +153,8 @@ void Interface::showMenu(){
     while(!end_prog);
 }
 
+
+
 bool Interface:: verifyExit(){
     char check;
 
@@ -173,6 +182,8 @@ bool Interface:: verifyExit(){
     while(true);
 }
 
+
+
 // para esperar que o b seja pressionado
 void wait_B(){
 
@@ -188,6 +199,8 @@ void wait_B(){
         }
     }
 }
+
+
 
 //////////////////// Class Permute //////////////////////
 
@@ -245,14 +258,13 @@ void Interface::class_Permute() {
     while(!stop_While);
 }
 
+
 void Interface:: process_Changes() {
 
     if (!login) {
         string password;
 
-        cout
-                << "\n-------- To access this section you need a login and password - Only teachers can access this section --------"
-                << endl;
+        cout << "\n-------- To access this section you need a login and password - Only teachers can access this section --------"<< endl;
         cout << endl;
 
         cout << "Username (choose an username): ";
@@ -347,7 +359,7 @@ void Interface:: process_Changes() {
             int low_index = student.lowerStudentIndex(student_classes_lines_);
             int high_index = student.highStudentIndex(student_classes_lines_);
 
-            if (change.can_student_switch(student_classes_lines_, classesCsv_lines_)) {
+            if (change.can_student_switch(student_classes_lines_, classesCsv_lines_, classes_per_uc_lines_)) {
 
                 accepted_one_student.push_back(change);
 
@@ -375,6 +387,9 @@ void Interface:: process_Changes() {
         //esvaziar o vetor
         one_request.clear();
     }
+
+    //colocar sorted outra vez os estudantes
+    sort(student_classes_lines_.begin(),student_classes_lines_.end(), [](Read_line a, Read_line &b){ return b.getInt(0) > a.getInt(0); });
 
     wait_B();
 }
@@ -550,15 +565,17 @@ void Interface::list_Classes(){
 }
 
 void Interface::show_Classes_Year(){
+
     char year;
     bool digit = false;
 
-    cout << "---------- List Classes by Year ----------" << endl;
+    cout << "\n---------- List Classes by Year ----------" << endl;
     cout << endl;
     cout << "What academic year are you looking for: ";
 
     // verificar se o input existe
     while(!digit) {
+
         cin >> year;
 
         if(isdigit(year))
@@ -569,14 +586,15 @@ void Interface::show_Classes_Year(){
 
     }
 
-    cout << "-------------- Classes in "<< year << "st year ---------------";
+    cout << "\n-------------- Classes in "<< year << "st year ---------------";
     cout << endl;
 
 
-    for (auto uc: all_classes) {
-        if((uc.at(0) = year))
-            cout << uc << endl;
+    for (auto turma: all_classes) {
+        if((turma.at(0) = year))
+            cout << turma << endl;
     }
+
 
     wait_B();
 
@@ -584,7 +602,7 @@ void Interface::show_Classes_Year(){
 
 void Interface::show_All_Classes() {
 
-    cout << "---------- ALL Classes ----------" << endl;
+    cout << "\n---------- ALL Classes ----------" << endl;
     cout << endl;
 
 
@@ -598,7 +616,7 @@ void Interface::show_All_Classes() {
 
 void Interface::show_Classes_UC() {
     string ucCode;
-    set<string> classes_Uc;
+    set<string> classes_Uc_;
 
     cout << "\n---------- List Classes by UC ----------" << endl;
     cout << endl;
@@ -607,18 +625,17 @@ void Interface::show_Classes_UC() {
     //verificar se o Uc Code existe
     ucCode = find_UC();
 
-    for (auto line: classes_per_uc_lines_) {
-        if (line.getString(0) == ucCode) {
-            classes_Uc.insert(line.getString(1));
-        }
-    }
+    Uc uc(ucCode);
+
 
     cout << "\n---------- Classes of " << ucCode << " ----------" << endl;
     cout << endl;
 
     // imprimir a lista das classes naquela UC
-    for (auto classCode: classes_Uc) {
-        cout << classCode << endl;
+
+    for (auto line: uc.classList(classes_per_uc_lines_)) {
+        cout << line.getClassCode() << endl;
+
     }
 
     wait_B();
@@ -640,7 +657,7 @@ void Interface::class_Schedule() {
 
     cout<< endl;
     // apresentar o horário de uma turma
-    turma.print_horario_class_code(classCode, horario);
+    turma.print_horario_class_code( horario);
 
     wait_B();
 
@@ -844,7 +861,7 @@ void Interface::get_UcSchedule() {
 
     // pegar no horário de uma UC
     Uc single_UC(ucCode);
-    single_UC.print_horario_uc_code(classesCsv_lines_);// faz print do horário de uma uc
+    single_UC.print_horario_uc_code();// faz print do horário de uma uc
 
     wait_B();
 
@@ -935,21 +952,13 @@ void Interface::get_StudentSchedule() {
 
     studentCode = find_Up();
 
-    Horario horario;
     Estudante student_(studentCode);
 
     // pegar no horário da turma por cada uc do estudante
-    for (auto line: student_.find(student_classes_lines_)) {
-
-            classCode = line.getString(3);
-            ucCode = line.getString(2);
-            horario.add_class(classesCsv_lines_, classCode, ucCode);// adicionar aula ao horário
-
-
-    }
+    vector<Aula> horario = student_.get_horario_Student(student_classes_lines_, classesCsv_lines_);
 
     // apresentar o horário de um estudante
-    student_.print_horario_class_uc(horario.get_horario());
+    student_.print_horario_class_uc(horario);
 
     wait_B();
 
@@ -1050,6 +1059,32 @@ void Interface::list_All_Students(string input, string value_1, string value_2) 
     } while (!stop_While);
 }
 
+void Interface::number_Of_Ucs() {
+    string value_1;
+    string input = "number_uc";
+    bool stop_While = false;
+    char choice;
+
+    cout << "\n--------- Do you want to see students who have more than how many ucs? ----------";
+    cout << endl;
+    cout << "Enter Your Choice : ";
+
+    while(!stop_While) {
+        cin >> choice;
+
+        if(isdigit(choice))
+            stop_While = true;
+
+        else
+            cout << "\nInvalid Input, please try again" << endl;
+
+    }
+
+    string s(1, choice);
+    alphabetic_Order(input, s);
+
+}
+
 void Interface::alphabetic_Order(string input, string value_1, string value_2) {
     bool stop_While = false;
     char choice;
@@ -1131,6 +1166,26 @@ void Interface::ascending_Order(string input, string value_1, string value_2) {
 
     }
 
+    if(input == "number_uc"){
+        for (auto line: student_classes_lines_) {
+            Estudante student(line.getString(0));
+            int numeroUcs = student.get_number_of_ucs(student_classes_lines_);
+            int number = stoi(value_1);
+            if (numeroUcs > number) {
+                alunos.insert({line.getString(1), line.getString(0)});
+            }
+        }
+
+
+        cout << "\n-------- Students with more than " << value_1 << " UCs, in ascending order ---------" << endl;
+        cout <<endl;
+
+        if(alunos.empty()){
+            cout << "\nThere is no student with more than "<< value_1 <<" UCs" << endl;
+        }
+    }
+
+
     for (auto aluno: alunos) {
         cout << "up" << aluno[1] << ": "<< aluno[0] << endl;
     }
@@ -1175,19 +1230,32 @@ void Interface::descending_Order(string input, string value_1, string value_2) {
 
     }
 
+    if(input == "number_uc"){
+        for (auto line: student_classes_lines_) {
+            Estudante student(line.getString(0));
+            int numeroUcs = student.get_number_of_ucs(student_classes_lines_);
+            int number = stoi(value_1);
+            if (numeroUcs > number) {
+                alunos.insert({line.getString(1), line.getString(0)});
+            }
+        }
+
+
+        cout << "\n-------- Students with more than " << value_1 << " UCs, in ascending order ---------" << endl;
+        cout <<endl;
+
+        if(alunos.empty()){
+            cout << "\nThere is no student with more than "<< value_1 <<" UCs" << endl;
+        }
+    }
+
+
     for (auto aluno: alunos) {
         cout << "up" << aluno[1] << ": "<< aluno[0] << endl;
     }
     // função que faz cout dos estudantes por ordem decrescente de nome
 
     wait_B();
-}
-
-void Interface::number_Of_Ucs() {
-
-    cout << "\n---------- Number of Ucs ----------" << endl;
-    cout << endl;
-    // função que faz cout dos estudantes por ordem do número de Ucs
 }
 
 void Interface::list_UcStudents() {

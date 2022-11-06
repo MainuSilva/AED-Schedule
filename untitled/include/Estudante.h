@@ -47,7 +47,7 @@ public:
    * @param lines: 1 linha do ficheiro students_classes.csv
    * @return O nome do estudante
    */
-    std::string get_studentName(vector<Read_line> lines) const;
+    std::string get_studentName(vector<Read_line> lines) ;
 
     /**
      * @brief Getter para o código da turma do estudante a uma determinada UC
@@ -81,6 +81,10 @@ public:
     int lowerStudentIndex(vector<Read_line> students);
 
     int highStudentIndex(vector<Read_line> students);
+
+    int get_number_of_ucs(vector<Read_line> students);
+
+    vector<Aula> get_horario_Student(vector<Read_line> students, vector<Read_line> classes);
 };
 
 

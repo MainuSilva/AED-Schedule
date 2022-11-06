@@ -26,9 +26,9 @@ public:
     string getStudentCode();
 
     bool can_student_switch_without_sobreposing_TP_PL(vector<Read_line> student_classes_lines_, vector<Read_line> classesCsv_lines_);
-    bool can_student_switch_without_passing_cap(vector<Read_line> student_classes_lines_);
+    bool can_student_switch_without_passing_cap(vector<Read_line> student_classes_lines_, vector <Read_line> classes, vector<Read_line> classes_per_uc);
     bool can_student_switch_without_causing_uc( vector<Read_line> student_classes_lines_);
-    bool can_student_switch(vector<Read_line> student_classes_lines_, vector<Read_line> classesCsv_lines_);
+    bool can_student_switch(vector<Read_line> student_classes_lines_, vector<Read_line> classesCsv_lines_,  vector<Read_line> classes_per_uc);
 
 
 };

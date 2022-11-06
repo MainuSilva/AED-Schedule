@@ -32,7 +32,8 @@ double Aula::get_duration() const { return duration_; }
 
 string Aula::get_type() const { return type_; }
 
-double Aula::get_endingTime() const { // saber o tempo final em double
+double Aula::get_endingTime() const {
+    // saber o tempo final em double
     double endingTime_ = startHour_ + duration_;
     return  endingTime_;
 }

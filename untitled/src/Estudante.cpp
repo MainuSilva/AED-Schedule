@@ -6,38 +6,81 @@ using namespace std;
 
 Estudante::Estudante()= default;
 
+
 Estudante::Estudante(string studentCode){
     studentCode_ = studentCode;
 }
 
+
 string Estudante::get_studentCode() const {return studentCode_;}
 
-string Estudante::get_studentName(vector<Read_line> lines) const {
-    Estudante student(studentCode_);
-    return student.find(lines)[0].getString(1);
+
+string Estudante::get_studentName(vector<Read_line> lines) {
+
+    return find(lines)[0].getString(1);
+}
+
+vector <Aula> Estudante::get_horario_Student(vector <Read_line> students, vector<Read_line> classes){
+    vector <Aula> aulas;
+
+    for(Read_line student : find(students)){
+
+        Uc uc(student.getString(2), classes);
+
+        vector<Aula> uc_classes = uc.get_horarios_uc_turma( student.getString(3));
+
+        for(Aula aula: uc_classes){
+
+            aulas.push_back(aula);
+        }
+    }
+
+    return aulas;
+
 }
 
 string Estudante::get_Classcode_in_UC(vector<Read_line> lines, string ucCode){
-    Estudante student(studentCode_);
-    for( auto line: student.find(lines)){
+
+    for( auto line: find(lines)){
+
         if(ucCode == line.getString(2) ){
+
             return line.getString(3);
         }
     }
     return {};
 }
 
+
+
+int Estudante::get_number_of_ucs(vector<Read_line> students) {
+    int number_ucs_;
+
+    number_ucs_ = find(students).size();
+
+    return number_ucs_;
+}
+
+
+
 int Estudante::lowerStudentIndex( vector<Read_line> students) {
     int up = stoi(studentCode_);
     int lower = 0,
-            higher = students.size()-1;
+    higher = students.size()-1;
+
     while(higher > lower){
         int medium = lower + (higher-lower)/2;
+
         if(students[medium].getInt(0) >= up) higher = medium;
+
         else  lower = medium +1;
+
     }
     return lower;
 }
+
+
+
 int Estudante::highStudentIndex(vector<Read_line> students){
     int index;
     int up = stoi(studentCode_);
@@ -46,19 +89,26 @@ int Estudante::highStudentIndex(vector<Read_line> students){
 
     while(high > low){
         int medium = low + (high-low)/2;
+
         if(students[medium].getInt(0) >= up + 1) high = medium;
+
         else  low = medium +1;
     }
     if(students[low].getInt(0) > up) index = low-1;
+
     else index = low;
 
     return index;
 
 }
+
+
+
 vector<Read_line> Estudante::find(vector <Read_line> students){
 
     vector<Read_line> aux;
     int resultA = lowerStudentIndex(students);
+
     int resultB = highStudentIndex(students);
 
     for(int i = resultA; i <= resultB; i++){
@@ -67,6 +117,7 @@ vector<Read_line> Estudante::find(vector <Read_line> students){
     return aux;
 
 }
+
 
 
 void Estudante::print_horario_class_uc(vector<Aula> horario){

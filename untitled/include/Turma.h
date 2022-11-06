@@ -13,7 +13,6 @@ class Turma {
 private:
     std::string classCode_;
     std::string ucCode_;
-    vector<Aula> horario_;
 
 
 public:
@@ -23,11 +22,12 @@ public:
 
     vector<Aula> get_horario_turma(std::vector<Read_line> lines);
 
-    void print_horario_class_code(string classCode, vector<Aula> horario);
+    void print_horario_class_code( vector<Aula> horario);
 
     int getStudentNumber(vector<Read_line> lines);
 
-    string getUcCode();
+    const string &getClassCode() const;
+
 
 };
 
